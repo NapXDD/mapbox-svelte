@@ -1,5 +1,4 @@
 <script lang="ts">
-	import mapboxgl from 'mapbox-gl';
 	import { getContext, onMount, setContext } from 'svelte';
 	import type { LayerProps } from './type';
 	import type { GroupContext } from '../Group/type';
@@ -10,8 +9,8 @@
 	setContext('layer', layerConfig);
 
 	const group: GroupContext = getContext('group');
-	if (group.groupName) {
-		group.pushLayer(layerConfig);
+	if (group) {
+		group.pushLayer(layerConfig.id);
 	}
 
 	onMount(() => {
@@ -21,4 +20,4 @@
 	});
 </script>
 
-{@render children?.()}
+{@render children?.()} 

@@ -1,58 +1,66 @@
-# Svelte library
+# mapbox-svelte
 
-Everything you need to build a Svelte library, powered by [`sv`](https://npmjs.com/package/sv).
+A Svelte component library for Mapbox GL JS, providing easy-to-use components for building interactive maps.
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Installation
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+npm install mapbox-svelte
 ```
 
-## Developing
+## Usage
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Add your mapbox key to env
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```env
+PUBLIC_MAPBOX_KEY=your_key
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+```svelte
+<script>
+	import * as Mapbox from 'mapbox-svelte';
 
-## Building
+	let mapComponent: Mapbox.Container
+</script>
 
-To build your library:
+<div class="map-container">
+	<Mapbox.Container bind:this={mapComponent}>
+		<Mapbox.Polygon source="source" {coordinates}></Mapbox.Polygon>
+		<Mapbox.Layer
+			layerConfig={{
+				id: 'hehe',
+				source: 'source',
+				type: 'fill',
+				paint: { 'fill-color': '#0080ff', 'fill-opacity': 0.5 }
+			}}
+		></Mapbox.Layer>
+	</Mapbox.Container>
+</div>
 
-```bash
-npm run package
+<style>
+	.map-container {
+		width: 100%;
+		height: 500px;
+	}
+</style>
 ```
 
-To create a production version of your showcase app:
+## Components
 
-```bash
-npm run build
-```
+- `Container` - Main map container
+- `Group` - Group multiple map elements
+- `Layer` - Mapbox layer wrapper
+- `Mark` - Simple map marker
+- `Point` - Point geometry
+- `Polygon` - Polygon geometry
+- `Popup` - Map popup
+- `Tooltip` - Hover tooltip
 
-You can preview the production build with `npm run preview`.
+## Requirements
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- Svelte 5.0+
+- Mapbox GL JS 3.13.0+
 
-## Publishing
+## License
 
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
+MIT

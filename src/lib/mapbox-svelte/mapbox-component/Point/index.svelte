@@ -2,6 +2,8 @@
 	import { getMapboxContext, setMapboxContext } from '../utilities';
 	import type { PointProps } from './type';
 	import { pointInitialDataSource } from './pointDataSource';
+	import type { GroupContext } from '../Group/type';
+	import { getContext } from 'svelte';
 
 	let {
 		children,
@@ -9,6 +11,11 @@
 		source,
 		imageSrouce = 'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png'
 	}: PointProps = $props();
+
+	const group: GroupContext = getContext("group")
+	if(group){
+		group.pushSource(source)
+	}
 
 	const map: mapboxgl.Map = getMapboxContext();
 	setMapboxContext(map);
@@ -25,4 +32,4 @@
 	});
 </script>
 
-{@render children?.()}
+{@render children?.()} 

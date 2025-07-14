@@ -4,8 +4,8 @@
 	import mapboxgl from "mapbox-gl";
 	import "mapbox-gl/dist/mapbox-gl.css";
 	import { onMount } from "svelte";
-	import type { MapboxContainerProps } from "./type";
-	import { setMapboxContext } from "./mapbox-utilities/utilities";
+	import type { ContainerProps } from "./type";
+	import { setMapboxContext } from "../utilities";
 
 	let {
 		children,
@@ -14,21 +14,21 @@
 			longitude: -71.224518,
 			zoom: 9,
 		},
-	}: MapboxContainerProps = $props();
+	}: ContainerProps = $props();
 	let map = $state<mapboxgl.Map | null>(null);
 	let mapContainer: HTMLElement;
 	let childrenRender = $state(false);
 
 	onMount(() => {
 		mapboxgl.accessToken = env.PUBLIC_MAPBOX_KEY;
-		const map = new mapboxgl.Map({
+		map = new mapboxgl.Map({
 			container: mapContainer,
 			center: [initialState.longitude, initialState.latitude],
 			zoom: initialState.zoom,
 		});
 		setMapboxContext(map);
 		childrenRender = true;
-		return () => map.remove();
+		return () => map?.remove();
 	});
 
 	export function getMap() {

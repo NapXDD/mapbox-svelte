@@ -1,6 +1,6 @@
-import type { Snippet } from "svelte";
+import type { Snippet } from 'svelte';
 
-export interface MapboxContainerProps {
+export interface ContainerProps {
 	children?: Snippet;
 	initialState?: {
 		longitude: number;

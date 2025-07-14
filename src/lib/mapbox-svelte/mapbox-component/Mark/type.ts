@@ -1,6 +1,6 @@
-import type { Snippet } from "svelte";
+import type { Snippet } from 'svelte';
 
-export interface Props {
+export interface MarkProps {
 	backgroundImage?: string;
 	coordinates?: [number, number];
 	tooltip?: string;

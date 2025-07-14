@@ -1,10 +1,10 @@
 <script lang="ts">
 	import mapboxgl from 'mapbox-gl';
 	import { onMount } from 'svelte';
-	import type { Props } from './type';
+	import type { MarkProps } from './type';
 	import { getMapboxContext } from '../utilities';
 
-	let { coordinates = [-71.224518, 42.213995], backgroundImage, children }: Props = $props();
+	let { coordinates = [-71.224518, 42.213995], backgroundImage, children }: MarkProps = $props();
 
 	let divElement: HTMLDivElement;
 
@@ -27,4 +27,4 @@
 
 <div bind:this={divElement}>
 	{@render children?.()}
-</div>
+</div> 

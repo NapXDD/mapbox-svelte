@@ -74,4 +74,4 @@
 	});
 </script>
 
-<div bind:this={divElement}>{@render children?.()}</div>
+<div bind:this={divElement}>{@render children?.()}</div> 

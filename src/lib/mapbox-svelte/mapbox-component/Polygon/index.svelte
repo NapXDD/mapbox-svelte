@@ -1,11 +1,17 @@
 <script lang="ts">
-	import { getContext, setContext } from 'svelte';
 	import type { PolygonProps } from './type';
 	import { polygonInitialDataSource } from './polygonDataSource';
-	import type { LayerSpecification } from 'mapbox-gl';
 	import { getMapboxContext, setMapboxContext } from '../utilities';
+	import { getContext } from 'svelte';
+	import type { GroupContext } from '../Group/type';
 
 	let { children, coordinates, source }: PolygonProps = $props();
+
+	const group: GroupContext = getContext("group")
+
+	if(group){
+		group.pushSource(source)
+	}
 
 	const map: mapboxgl.Map = getMapboxContext();
 	setMapboxContext(map);
@@ -16,4 +22,4 @@
 	});
 </script>
 
-{@render children?.()}
+{@render children?.()} 

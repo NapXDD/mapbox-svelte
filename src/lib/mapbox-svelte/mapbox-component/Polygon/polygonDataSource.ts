@@ -1,10 +1,9 @@
 import type { SourceSpecification } from 'mapbox-gl';
 import type { Coordinates } from './type';
-import type { GeoEntityDataGeoJsonProperties } from '$lib/aoh/gis/types';
 
 export const polygonInitialDataSource = (
 	coordinate: Coordinates,
-	properties?: GeoEntityDataGeoJsonProperties
+	properties?: Record<string, string>
 ): SourceSpecification => {
 	return {
 		type: 'geojson',
