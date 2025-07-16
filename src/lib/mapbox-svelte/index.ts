@@ -1,5 +1,3 @@
-import type { Coordinate, Coordinates } from './mapbox-component/Polygon/type';
-
 // Mapbox Components
 export { default as Container } from './mapbox-component/Container/index.svelte';
 export { default as Group } from './mapbox-component/Group/index.svelte';
@@ -19,7 +17,7 @@ export type { PointProps } from './mapbox-component/Point/type';
 export type { PolygonProps } from './mapbox-component/Polygon/type';
 export type { PopupProps } from './mapbox-component/Popup/type';
 export type { TooltipProps } from './mapbox-component/Tooltip/type';
-export type { Coordinate, Coordinates };
+export type { Coordinate, Coordinates } from './mapbox-component/Polygon/type';
 
 // Data Sources
 export * from './mapbox-component/Point/pointDataSource';
