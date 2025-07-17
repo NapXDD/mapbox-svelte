@@ -1,10 +1,7 @@
+import type { MapOptions } from 'mapbox-gl';
 import type { Snippet } from 'svelte';
 
 export interface ContainerProps {
 	children?: Snippet;
-	initialState?: {
-		longitude: number;
-		latitude: number;
-		zoom: number;
-	};
+	initialState?: Omit<MapOptions, 'container'>;
 }

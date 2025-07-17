@@ -44,6 +44,7 @@
 
 <div class="map-container">
 	<Mapbox.Container bind:this={mapComponent}>
+		<Mapbox.Draw></Mapbox.Draw>
 		{#each geojsonData as data, index}
 			<Mapbox.Group groupName={`group-${index}`} bind:this={groupRefs[index]}>
 				<Mapbox.Layer

@@ -7,6 +7,7 @@ export { default as Point } from './mapbox-component/Point/index.svelte';
 export { default as Polygon } from './mapbox-component/Polygon/index.svelte';
 export { default as Popup } from './mapbox-component/Popup/index.svelte';
 export { default as Tooltip } from './mapbox-component/Tooltip/index.svelte';
+export { default as Draw } from './mapbox-component/Draw/index.svelte';
 
 // Component Types
 export type { ContainerProps } from './mapbox-component/Container/type';
