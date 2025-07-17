@@ -35,8 +35,7 @@ PUBLIC_MAPBOX_KEY=your_key
 </style>
 ```
 
-For more information visit [Mapbox-svelte documentation](https://napxdd-mapbox-svelte-docs.vercel.app/) test
-
+For more information visit [Mapbox-svelte documentation](https://napxdd-mapbox-svelte-docs.vercel.app/)
 ## Requirements
 
 - Svelte 5.0+
