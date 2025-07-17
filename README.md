@@ -20,21 +20,11 @@ PUBLIC_MAPBOX_KEY=your_key
 <script>
 	import * as Mapbox from 'mapbox-svelte';
 
-	let mapComponent: Mapbox.Container
+	let mapComponent: Mapbox.Container;
 </script>
 
 <div class="map-container">
-	<Mapbox.Container bind:this={mapComponent}>
-		<Mapbox.Polygon source="source" {coordinates}></Mapbox.Polygon>
-		<Mapbox.Layer
-			layerConfig={{
-				id: 'hehe',
-				source: 'source',
-				type: 'fill',
-				paint: { 'fill-color': '#0080ff', 'fill-opacity': 0.5 }
-			}}
-		></Mapbox.Layer>
-	</Mapbox.Container>
+	<Mapbox.Container></Mapbox.Container>
 </div>
 
 <style>
@@ -45,16 +35,7 @@ PUBLIC_MAPBOX_KEY=your_key
 </style>
 ```
 
-## Components
-
-- `Container` - Main map container
-- `Group` - Group multiple map elements
-- `Layer` - Mapbox layer wrapper
-- `Mark` - Simple map marker
-- `Point` - Point geometry
-- `Polygon` - Polygon geometry
-- `Popup` - Map popup
-- `Tooltip` - Hover tooltip
+For more information visit [Mapbox-svelte documentation](https://napxdd-mapbox-svelte-docs.vercel.app/)
 
 ## Requirements
 
