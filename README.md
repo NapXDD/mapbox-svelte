@@ -5,7 +5,7 @@ A Svelte component library for Mapbox GL JS, providing easy-to-use components fo
 ## Installation
 
 ```bash
-npm install mapbox-svelte
+npm i @napxdd/mapbox-svelte
 ```
 
 ## Usage
