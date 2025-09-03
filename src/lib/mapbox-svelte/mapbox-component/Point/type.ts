@@ -1,11 +1,10 @@
-import type { Snippet } from "svelte";
-import type { Coordinates } from "../Polygon/type";
+import type { Snippet } from 'svelte';
+import type { Coordinates } from '../Polygon/type';
 
 export interface PointProps {
 	children?: Snippet;
 	coordinates: Coordinates;
 	source: string;
 	imageSrouce?: string;
+	properties?: Record<string, string>;
 }
-
-export interface PointConfig {}

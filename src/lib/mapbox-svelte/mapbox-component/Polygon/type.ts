@@ -1,4 +1,4 @@
-import type { Snippet } from "svelte";
+import type { Snippet } from 'svelte';
 
 export type Coordinate = [number, number];
 
@@ -8,4 +8,5 @@ export interface PolygonProps {
 	children?: Snippet;
 	coordinates: Coordinates;
 	source: string;
+	properties?: Record<string, string>;
 }

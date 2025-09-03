@@ -6,6 +6,7 @@
 	import { onMount } from 'svelte';
 	import type { ContainerProps } from './type';
 	import { setMapboxContext } from '../utilities';
+	import { center } from '@turf/turf';
 
 	let {
 		children,
@@ -17,6 +18,10 @@
 	let map = $state<mapboxgl.Map | null>(null);
 	let mapContainer: HTMLElement;
 	let childrenRender = $state(false);
+	let initStage = {
+		center: [-71.224518, 42.213995],
+		zoom: 9
+	};
 
 	onMount(() => {
 		mapboxgl.accessToken = env.PUBLIC_MAPBOX_KEY;

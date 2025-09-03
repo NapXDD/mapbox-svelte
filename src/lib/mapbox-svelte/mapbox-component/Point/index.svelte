@@ -9,6 +9,7 @@
 		children,
 		coordinates = [[-67.13734, 45.13745]],
 		source,
+		properties,
 		imageSrouce = 'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png'
 	}: PointProps = $props();
 
