@@ -1,6 +1,6 @@
 {
 	"name": "@napxdd/mapbox-svelte",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"description": "A Svelte component library for Mapbox GL JS",
 	"author": "NapXDD <khoadole21@gmail.com>",
 	"license": "MIT",
