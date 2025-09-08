@@ -6,6 +6,7 @@
 	let { children, layerConfig, beforeId }: LayerProps = $props();
 
 	const map: mapboxgl.Map = getContext('mapbox-gl');
+
 	setContext('layer', layerConfig);
 
 	const group: GroupContext = getContext('group');
@@ -14,10 +15,16 @@
 	}
 
 	onMount(() => {
-		map.on('load', () => {
-			map.addLayer(layerConfig, beforeId);
-		});
+		if (map.loaded()) {
+			// Map is already fully loaded, safe to add layer now
+			map.addLayer(layerConfig);
+		} else {
+			// Map not ready yet, wait for load
+			map.on('load', () => {
+				map.addLayer(layerConfig, beforeId);
+			});
+		}
 	});
 </script>
 
-{@render children?.()} 
+{@render children?.()}
