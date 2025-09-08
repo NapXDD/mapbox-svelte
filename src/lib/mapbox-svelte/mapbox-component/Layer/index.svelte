@@ -14,17 +14,7 @@
 		group.pushLayer(layerConfig.id);
 	}
 
-	onMount(() => {
-		if (map.loaded()) {
-			// Map is already fully loaded, safe to add layer now
-			map.addLayer(layerConfig);
-		} else {
-			// Map not ready yet, wait for load
-			map.on('load', () => {
-				map.addLayer(layerConfig, beforeId);
-			});
-		}
-	});
+	map.addLayer(layerConfig, beforeId);
 </script>
 
 {@render children?.()}

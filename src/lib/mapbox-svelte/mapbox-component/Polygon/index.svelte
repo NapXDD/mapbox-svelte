@@ -16,19 +16,9 @@
 	const map: mapboxgl.Map = getMapboxContext();
 	setMapboxContext(map);
 
-	if (map.loaded()) {
-		// Map is already fully loaded, safe to add layer now
-		if (!coordinates) throw 'Coordinates not found';
-		const dataSource = polygonInitialDataSource(coordinates, properties);
-		map.addSource(source, dataSource);
-	} else {
-		// Map not ready yet, wait for load
-		map.on('load', () => {
-			if (!coordinates) throw 'Coordinates not found';
-			const dataSource = polygonInitialDataSource(coordinates, properties);
-			map.addSource(source, dataSource);
-		});
-	}
+	if (!coordinates) throw 'Coordinates not found';
+	const dataSource = polygonInitialDataSource(coordinates, properties);
+	map.addSource(source, dataSource);
 </script>
 
 {@render children?.()}
