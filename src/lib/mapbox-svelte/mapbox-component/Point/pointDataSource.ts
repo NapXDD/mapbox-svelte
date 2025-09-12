@@ -3,7 +3,7 @@ import type { Coordinate, Coordinates } from '../Polygon/type';
 import type {Feature, Point} from 'geojson'
 
 export const pointInitialDataSource = (coordinates: Coordinates): SourceSpecification => {
-	const pointData = coordinates.map((coordinate) => pointGenerate(coordinate));
+	const pointData = coordinates.map((coordinate) => pointFeatureGenerate(coordinate));
 	return {
 		type: 'geojson',
 		data: {
@@ -13,7 +13,7 @@ export const pointInitialDataSource = (coordinates: Coordinates): SourceSpecific
 	};
 };
 
-export const pointGenerate = (
+export const pointFeatureGenerate = (
 	coordinate: Coordinate,
 	properties?: GeoJSON.GeoJsonProperties
 ): Feature<Point, GeoJSON.GeoJsonProperties> => {
