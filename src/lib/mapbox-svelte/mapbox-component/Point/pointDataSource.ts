@@ -1,5 +1,6 @@
 import type { SourceSpecification } from 'mapbox-gl';
 import type { Coordinate, Coordinates } from '../Polygon/type';
+import type {Feature, Point} from 'geojson'
 
 export const pointInitialDataSource = (coordinates: Coordinates): SourceSpecification => {
 	const pointData = coordinates.map((coordinate) => pointGenerate(coordinate));
@@ -14,8 +15,8 @@ export const pointInitialDataSource = (coordinates: Coordinates): SourceSpecific
 
 export const pointGenerate = (
 	coordinate: Coordinate,
-	properties?: Record<string, string>
-): GeoJSON.Feature<GeoJSON.Geometry, GeoJSON.GeoJsonProperties> => {
+	properties?: GeoJSON.GeoJsonProperties
+): Feature<Point, GeoJSON.GeoJsonProperties> => {
 	return {
 		type: 'Feature',
 		geometry: {

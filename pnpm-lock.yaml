@@ -39,6 +39,9 @@ importers:
       '@sveltejs/vite-plugin-svelte':
         specifier: ^5.0.0
         version: 5.1.0(svelte@5.35.5)(vite@6.3.5)
+      '@types/geojson':
+        specifier: ^7946.0.16
+        version: 7946.0.16
       '@types/mapbox__mapbox-gl-draw':
         specifier: ^1.4.9
         version: 1.4.9
